@@ -8,6 +8,8 @@
 		<result column="name" property="name" />
 		<result column="content" property="content" />
 		<result column="created_date" property="createdDate" />
+		<result column="location_id" property="locationId" />
+		<result column="model_id" property="modelId" />
 	</resultMap>
 
 </mapper>

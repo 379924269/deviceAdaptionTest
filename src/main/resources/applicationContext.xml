@@ -21,6 +21,7 @@
 
 	<context:component-scan base-package="com.dnp.attend.service" />
 	<context:component-scan base-package="com.dnp.attend.commons.scan" />
+	<context:component-scan base-package="com.dnp.attend.vo" />
 
 	<context:property-placeholder location="classpath:config.properties" />
 

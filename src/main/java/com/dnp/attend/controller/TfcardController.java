@@ -54,8 +54,11 @@ public class TfcardController {
 
 	@RequestMapping(value = "", method = RequestMethod.POST)
 	@ApiOperation(value = "添加TF卡信息", notes = "添加TF卡信息")
-	public void save(@ApiParam(name = "tfSn", value = "tf卡的序列号", required = false) @RequestParam(required = false) String tfSn) {
-		Tfcard tfcard = new Tfcard(tfSn);
+	public void save(@ApiParam(name = "tfId", value = "tf卡id", required = false) @RequestParam(required = false) String tfId,
+			@ApiParam(name = "tfSn", value = "tf卡的序列号", required = false) @RequestParam(required = false) String tfSn,
+			@ApiParam(name = "status", value = "tf卡的状态", required = false) @RequestParam(required = false) Integer status,
+			@ApiParam(name = "locationId", value = "tf卡归属地id", required = false) @RequestParam(required = false) Integer locationId) {
+		Tfcard tfcard = new Tfcard(tfId, tfSn, status, locationId);
 		tfcardService.save(tfcard);
 	}
 

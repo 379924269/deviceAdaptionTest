@@ -29,17 +29,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 @ApiModel(value = "config", description = "配置信息")
 public class Config implements Serializable {
 
-	public Config() {
-		super();
-	}
-
-	public Config(String name, String content, Date createdDate) {
-		super();
-		this.name = name;
-		this.content = content;
-		this.createdDate = createdDate;
-	}
-
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -71,6 +60,32 @@ public class Config implements Serializable {
 	@XmlAttribute
 	@ApiModelProperty(value = "配置创建时间", dataType = "Date", required = false)
 	private Date createdDate;
+
+	/**
+	 * 归属地id
+	 */
+	@Column(name = "location_id")
+	@XmlAttribute
+	@ApiModelProperty(value = "归属地id", dataType = "Integer", required = false)
+	private Integer locationId;
+	/**
+	 * 型号id
+	 */
+	@Column(name = "model_id")
+	@XmlAttribute
+	@ApiModelProperty(value = "型号id", dataType = "Integer", required = false)
+	private Integer modelId;
+
+	public Config() {
+		super();
+	}
+
+	public Config(String name, String content, Integer locationId, Integer modelId) {
+		this.name = name;
+		this.content = content;
+		this.locationId = locationId;
+		this.modelId = modelId;
+	}
 
 	public Integer getId() {
 		return id;

@@ -5,7 +5,10 @@
 	<!-- 通用查询映射结果 -->
 	<resultMap id="BaseResultMap" type="com.dnp.attend.model.Tfcard">
 		<id column="id" property="id" />
+		<result column="tf_id" property="tfId" />
 		<result column="tf_sn" property="tfSn" />
+		<result column="status" property="status" />
+		<result column="location_id" property="locationId" />
 	</resultMap>
 
 </mapper>

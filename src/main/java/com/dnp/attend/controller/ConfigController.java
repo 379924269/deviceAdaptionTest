@@ -1,7 +1,5 @@
 package com.dnp.attend.controller;
 
-import java.util.Date;
-
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -58,8 +56,9 @@ public class ConfigController {
 	@ApiOperation(value = "添加配置信息", notes = "添加配置信息")
 	public void save(@ApiParam(name = "name", value = "配置名称", required = false) @RequestParam(required = false) String name,
 			@ApiParam(name = "content", value = "配置内容,JSON字符串", required = false) @RequestParam(required = false) String content,
-			@ApiParam(name = "createdDate", value = "配置创建时间", required = false) @RequestParam(required = false) Date createdDate) {
-		Config config = new Config(name, content, createdDate);
+			@ApiParam(name = "locationId", value = "配置内容,JSON字符串", required = false) @RequestParam(required = false) Integer locationId,
+			@ApiParam(name = "modelId", value = "配置内容,JSON字符串", required = false) @RequestParam(required = false) Integer modelId) {
+		Config config = new Config(name, content, locationId, modelId);
 		configService.save(config);
 	}
 
