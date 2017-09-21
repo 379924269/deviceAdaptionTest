@@ -2,13 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dnp.attend.mapper.ResourceMapper">
 
-	<!-- 通用查询映射结果 -->
-	<resultMap id="BaseResultMap" type="com.dnp.attend.model.Resource">
-		<id column="id" property="id" />
-		<result column="name" property="name" />
-		<result column="parent_id" property="parentId" />
-		<result column="res_key" property="resKey" />
-		<result column="res_url" property="resUrl" />
-	</resultMap>
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.dnp.attend.model.Resource">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="parent_id" property="parentId"/>
+        <result column="res_key" property="resKey"/>
+        <result column="res_url" property="resUrl"/>
+    </resultMap>
 
 </mapper>

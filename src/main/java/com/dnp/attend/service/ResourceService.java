@@ -6,7 +6,7 @@ import com.dnp.attend.model.Resource;
  * <p>
  * 资源权限信息 服务类
  * </p>
- * 
+ *
  * @author huaxing.xie
  * @since 2017-06-07
  */

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
  * <p>
  * 资源权限信息 服务实现类
  * </p>
- * 
+ *
  * @author huaxing.xie
  * @since 2017-06-07
  */

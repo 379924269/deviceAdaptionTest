@@ -18,7 +18,7 @@
 		<mysql.version>5.1.29</mysql.version>
 		<spring.version>4.3.6.RELEASE</spring.version>
 		<mybatis.spring.version>1.2.4</mybatis.spring.version>
-		<springfox-version>2.6.1</springfox-version>
+		<springfox-version>2.7.0</springfox-version>
 	</properties>
 	<dependencies>
 		<!-- test begin -->
@@ -188,6 +188,11 @@
 		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger2</artifactId>
+			<version>${springfox-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
 			<version>${springfox-version}</version>
 		</dependency>
 		<!-- 简单的java日志外观 -->

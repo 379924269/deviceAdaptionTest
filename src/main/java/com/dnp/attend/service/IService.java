@@ -37,17 +37,17 @@ import com.dnp.attend.vo.PageVo;
 @Service
 public interface IService<T> {
 
-	T selectByKey(Object key);
+    T selectByKey(Object key);
 
-	int save(T entity);
+    int save(T entity);
 
-	int delete(Object key);
+    int delete(Object key);
 
-	int updateAll(T entity);
+    int updateAll(T entity);
 
-	int updateNotNull(T entity);
+    int updateNotNull(T entity);
 
-	List<T> selectByExample(Object example);
+    List<T> selectByExample(Object example);
 
-	Map<String, Object> selectByExample(PageVo pageVo, String search, String searchField, T t);
+    Map<String, Object> selectByExample(PageVo pageVo, String search, String searchField, T t);
 }

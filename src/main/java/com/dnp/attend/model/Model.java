@@ -17,7 +17,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * <p>
  * 型号信息
  * </p>
- * 
+ *
  * @author huaxing.xie
  * @since 2017-06-08
  */
@@ -27,47 +27,47 @@ import javax.xml.bind.annotation.XmlRootElement;
 @ApiModel(value = "model", description = "型号信息")
 public class Model implements Serializable {
 
-	public Model() {
-		super();
-	}
+    public Model() {
+        super();
+    }
 
-	public Model(String name) {
-		super();
-		this.name = name;
-	}
+    public Model(String name) {
+        super();
+        this.name = name;
+    }
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	/**
-	 * 型号id
-	 */
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@XmlAttribute
-	@ApiModelProperty(value = "型号id", dataType = "Integer", required = true)
-	private Integer id;
-	/**
-	 * 型号名称
-	 */
+    /**
+     * 型号id
+     */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @XmlAttribute
+    @ApiModelProperty(value = "型号id", dataType = "Integer", required = true)
+    private Integer id;
+    /**
+     * 型号名称
+     */
 
-	@XmlAttribute
-	@ApiModelProperty(value = "型号名称", dataType = "String", required = false)
-	private String name;
+    @XmlAttribute
+    @ApiModelProperty(value = "型号名称", dataType = "String", required = false)
+    private String name;
 
-	public Integer getId() {
-		return id;
-	}
+    public Integer getId() {
+        return id;
+    }
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
 }

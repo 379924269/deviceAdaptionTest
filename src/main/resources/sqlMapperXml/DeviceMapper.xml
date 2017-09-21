@@ -2,18 +2,18 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dnp.attend.mapper.DeviceMapper">
 
-	<!-- 通用查询映射结果 -->
-	<resultMap id="BaseResultMap" type="com.dnp.attend.model.Device">
-		<id column="id" property="id" />
-		<result column="serial_number" property="serialNumber" />
-		<result column="downloads" property="downloads" />
-		<result column="config_id" property="configId" />
-		<result column="application_id" property="applicationId" />
-		<result column="local_id" property="localId" />
-		<result column="model_id" property="modelId" />
-		<result column="tfcard_id" property="tfcardId" />
-		<result column="token" property="token" />
-		<result column="expiration_time" property="expirationTime" />
-	</resultMap>
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.dnp.attend.model.Device">
+        <id column="id" property="id"/>
+        <result column="serial_number" property="serialNumber"/>
+        <result column="downloads" property="downloads"/>
+        <result column="config_id" property="configId"/>
+        <result column="application_id" property="applicationId"/>
+        <result column="local_id" property="localId"/>
+        <result column="model_id" property="modelId"/>
+        <result column="tfcard_id" property="tfcardId"/>
+        <result column="token" property="token"/>
+        <result column="expiration_time" property="expirationTime"/>
+    </resultMap>
 
 </mapper>

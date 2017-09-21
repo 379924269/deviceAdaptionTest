@@ -17,7 +17,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * <p>
  * 归属地信息
  * </p>
- * 
+ *
  * @author huaxing.xie
  * @since 2017-06-08
  */
@@ -27,47 +27,47 @@ import javax.xml.bind.annotation.XmlRootElement;
 @ApiModel(value = "local", description = "归属地信息")
 public class Local implements Serializable {
 
-	public Local() {
-		super();
-	}
+    public Local() {
+        super();
+    }
 
-	public Local(String name) {
-		super();
-		this.name = name;
-	}
+    public Local(String name) {
+        super();
+        this.name = name;
+    }
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	/**
-	 * 归属地id
-	 */
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@XmlAttribute
-	@ApiModelProperty(value = "归属地id", dataType = "Integer", required = true)
-	private Integer id;
-	/**
-	 * 归属地名称
-	 */
+    /**
+     * 归属地id
+     */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @XmlAttribute
+    @ApiModelProperty(value = "归属地id", dataType = "Integer", required = true)
+    private Integer id;
+    /**
+     * 归属地名称
+     */
 
-	@XmlAttribute
-	@ApiModelProperty(value = "归属地名称", dataType = "String", required = false)
-	private String name;
+    @XmlAttribute
+    @ApiModelProperty(value = "归属地名称", dataType = "String", required = false)
+    private String name;
 
-	public Integer getId() {
-		return id;
-	}
+    public Integer getId() {
+        return id;
+    }
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
 }

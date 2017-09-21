@@ -6,7 +6,7 @@ import com.dnp.attend.model.Application;
  * <p>
  * 应用信息 服务类
  * </p>
- * 
+ *
  * @author huaxing.xie
  * @since 2017-06-07
  */

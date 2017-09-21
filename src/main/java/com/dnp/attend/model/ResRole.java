@@ -19,7 +19,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * <p>
  * 资源角色关系信息
  * </p>
- * 
+ *
  * @author huaxing.xie
  * @since 2017-06-08
  */
@@ -29,64 +29,64 @@ import javax.xml.bind.annotation.XmlRootElement;
 @ApiModel(value = "resRole", description = "资源角色关系信息")
 public class ResRole implements Serializable {
 
-	public ResRole(Integer resourceId, Integer roleId) {
-		super();
-		this.resourceId = resourceId;
-		this.roleId = roleId;
-	}
+    public ResRole(Integer resourceId, Integer roleId) {
+        super();
+        this.resourceId = resourceId;
+        this.roleId = roleId;
+    }
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	/**
-	 * 资源角色关系id
-	 */
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@XmlAttribute
-	@ApiModelProperty(value = "资源角色关系id", dataType = "Integer", required = true)
-	private Integer id;
+    /**
+     * 资源角色关系id
+     */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @XmlAttribute
+    @ApiModelProperty(value = "资源角色关系id", dataType = "Integer", required = true)
+    private Integer id;
 
-	public ResRole() {
-		super();
-	}
+    public ResRole() {
+        super();
+    }
 
-	/**
-	 * 资源id
-	 */
-	@Column(name = "resource_id")
-	@XmlAttribute
-	@ApiModelProperty(value = "资源id", dataType = "Integer", required = false)
-	private Integer resourceId;
-	/**
-	 * 角色id
-	 */
-	@Column(name = "role_id")
-	@XmlAttribute
-	@ApiModelProperty(value = "角色id", dataType = "Integer", required = false)
-	private Integer roleId;
+    /**
+     * 资源id
+     */
+    @Column(name = "resource_id")
+    @XmlAttribute
+    @ApiModelProperty(value = "资源id", dataType = "Integer", required = false)
+    private Integer resourceId;
+    /**
+     * 角色id
+     */
+    @Column(name = "role_id")
+    @XmlAttribute
+    @ApiModelProperty(value = "角色id", dataType = "Integer", required = false)
+    private Integer roleId;
 
-	public Integer getId() {
-		return id;
-	}
+    public Integer getId() {
+        return id;
+    }
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-	public Integer getResourceId() {
-		return resourceId;
-	}
+    public Integer getResourceId() {
+        return resourceId;
+    }
 
-	public void setResourceId(Integer resourceId) {
-		this.resourceId = resourceId;
-	}
+    public void setResourceId(Integer resourceId) {
+        this.resourceId = resourceId;
+    }
 
-	public Integer getRoleId() {
-		return roleId;
-	}
+    public Integer getRoleId() {
+        return roleId;
+    }
 
-	public void setRoleId(Integer roleId) {
-		this.roleId = roleId;
-	}
+    public void setRoleId(Integer roleId) {
+        this.roleId = roleId;
+    }
 
 }

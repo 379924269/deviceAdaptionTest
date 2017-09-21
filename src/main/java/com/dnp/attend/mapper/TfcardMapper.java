@@ -7,7 +7,7 @@ import com.dnp.attend.util.MyMapper;
  * <p>
  * TF卡信息 Mapper 接口
  * </p>
- * 
+ *
  * @author huaxing.xie
  * @since 2017-06-07
  */

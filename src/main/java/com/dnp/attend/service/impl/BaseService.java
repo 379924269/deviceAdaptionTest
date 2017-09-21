@@ -41,56 +41,55 @@ import com.github.pagehelper.PageInfo;
 
 /**
  * Description: 通用接口的通用的实现类
- * 
- * @since: 2017年5月2日 下午3:35:00
- * 
+ *
  * @author xhxing
+ * @since: 2017年5月2日 下午3:35:00
  */
 public abstract class BaseService<T> implements IService<T> {
 
-	@Autowired
-	protected Mapper<T> mapper;
+    @Autowired
+    protected Mapper<T> mapper;
 
-	public Mapper<T> getMapper() {
-		return mapper;
-	}
+    public Mapper<T> getMapper() {
+        return mapper;
+    }
 
-	@Override
-	public T selectByKey(Object key) {
-		return mapper.selectByPrimaryKey(key);
-	}
+    @Override
+    public T selectByKey(Object key) {
+        return mapper.selectByPrimaryKey(key);
+    }
 
-	public int save(T entity) {
-		return mapper.insert(entity);
-	}
+    public int save(T entity) {
+        return mapper.insert(entity);
+    }
 
-	public int delete(Object key) {
-		return mapper.deleteByPrimaryKey(key);
-	}
+    public int delete(Object key) {
+        return mapper.deleteByPrimaryKey(key);
+    }
 
-	public int updateAll(T entity) {
-		return mapper.updateByPrimaryKey(entity);
-	}
+    public int updateAll(T entity) {
+        return mapper.updateByPrimaryKey(entity);
+    }
 
-	public int updateNotNull(T entity) {
-		return mapper.updateByPrimaryKeySelective(entity);
-	}
+    public int updateNotNull(T entity) {
+        return mapper.updateByPrimaryKeySelective(entity);
+    }
 
-	public List<T> selectByExample(Object example) {
-		return mapper.selectByExample(example);
-	}
+    public List<T> selectByExample(Object example) {
+        return mapper.selectByExample(example);
+    }
 
-	public Map<String, Object> selectByExample(PageVo pageVo, String search, String searchField, T t) {
-		Example example = new Example(t.getClass());
-		Example.Criteria criteria = example.createCriteria();
-		if (StringUtil.isNotEmpty(search)) {
-			criteria.andLike(searchField, "%" + search + "%");
-		}
-		PageHelper.startPage(pageVo.getOffset(), pageVo.getLimit());
-		List<T> list = mapper.selectByExample(example);
-		PageInfo<T> pageInfo = new PageInfo<T>(list);
-		return MapUtil.pageInMap((int) pageInfo.getTotal(), pageInfo.getList());
-	}
+    public Map<String, Object> selectByExample(PageVo pageVo, String search, String searchField, T t) {
+        Example example = new Example(t.getClass());
+        Example.Criteria criteria = example.createCriteria();
+        if (StringUtil.isNotEmpty(search)) {
+            criteria.andLike(searchField, "%" + search + "%");
+        }
+        PageHelper.startPage(pageVo.getOffset(), pageVo.getLimit());
+        List<T> list = mapper.selectByExample(example);
+        PageInfo<T> pageInfo = new PageInfo<T>(list);
+        return MapUtil.pageInMap((int) pageInfo.getTotal(), pageInfo.getList());
+    }
 
-	// TODO 其他...
+    // TODO 其他...
 }

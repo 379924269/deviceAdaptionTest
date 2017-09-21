@@ -16,12 +16,12 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-/** 
+/**
  * Description: 这个记日志还不错
- * 
+ *
  * @author xhxing
- * @since 2017年6月9日 下午12:12:23  
- */ 
+ * @since 2017年6月9日 下午12:12:23
+ */
 @Aspect
 @Component
 @Order
@@ -32,10 +32,11 @@ public class SysLogAspect {
 //    private ISysLogService sysLogService;
 
     @Pointcut("execution(* com.dnp.attend.controller.*Controller.*(..))")
-    public void cutController() {}
+    public void cutController() {
+    }
 
-	@SuppressWarnings("unchecked")
-	@Around("cutController()")
+    @SuppressWarnings("unchecked")
+    @Around("cutController()")
     public Object recordSysLog(ProceedingJoinPoint point) throws Throwable {
         String strMethodName = point.getSignature().getName();
         String strClassName = point.getTarget().getClass().getName();
