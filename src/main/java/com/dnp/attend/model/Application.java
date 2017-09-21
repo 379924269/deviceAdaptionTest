@@ -1,26 +1,31 @@
-package com.dnp.attend.model;
+package
+
+        com.dnp.attend.model;
+
+
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Date;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-import java.io.Serializable;
+import java.io.*;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+
 
 /**
  * <p>
  * 应用信息
  * </p>
  *
- * @author huaxing.xie
- * @since 2017-06-08
+ * @author stylefeng
+ * @since 2017-09-21
  */
 
 @XmlRootElement(name = "application")
@@ -28,29 +33,15 @@ import javax.xml.bind.annotation.XmlRootElement;
 @ApiModel(value = "application", description = "应用信息")
 public class Application implements Serializable {
 
-    public Application() {
-        super();
-    }
-
-    public Application(String name, String versionName, String versionCode, String packageName, String system, String md5, Integer size, String url) {
-        super();
-        this.name = name;
-        this.versionName = versionName;
-        this.versionCode = versionCode;
-        this.packageName = packageName;
-        this.system = system;
-        this.md5 = md5;
-        this.size = size;
-        this.url = url;
-    }
-
     private static final long serialVersionUID = 1L;
+
 
     /**
      * id
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     @XmlAttribute
     @ApiModelProperty(value = "id", dataType = "Integer", required = true)
     private Integer id;
@@ -65,6 +56,7 @@ public class Application implements Serializable {
      * 应用版本名称
      */
     @Column(name = "version_name")
+
     @XmlAttribute
     @ApiModelProperty(value = "应用版本名称", dataType = "String", required = false)
     private String versionName;
@@ -72,13 +64,15 @@ public class Application implements Serializable {
      * 应用版本号
      */
     @Column(name = "version_code")
+
     @XmlAttribute
-    @ApiModelProperty(value = "应用版本号", dataType = "String", required = false)
-    private String versionCode;
+    @ApiModelProperty(value = "应用版本号", dataType = "Integer", required = false)
+    private Integer versionCode;
     /**
      * 应用报名
      */
     @Column(name = "package_name")
+
     @XmlAttribute
     @ApiModelProperty(value = "应用报名", dataType = "String", required = false)
     private String packageName;
@@ -110,6 +104,60 @@ public class Application implements Serializable {
     @XmlAttribute
     @ApiModelProperty(value = "应用地址", dataType = "String", required = false)
     private String url;
+    /**
+     * 创建时间
+     */
+    @Column(name = "created_date")
+
+    @XmlAttribute
+    @ApiModelProperty(value = "创建时间", dataType = "Long", required = false)
+    private Long createdDate;
+    /**
+     * 应用描述
+     */
+
+    @XmlAttribute
+    @ApiModelProperty(value = "应用描述", dataType = "String", required = false)
+    private String description;
+
+
+    public Application() {
+    }
+
+
+    public Application(
+            String name
+            ,
+            String versionName
+            ,
+            Integer versionCode
+            ,
+            String packageName
+            ,
+            String system
+            ,
+            String md5
+            ,
+            Integer size
+            ,
+            String url
+            ,
+            Long createdDate
+            ,
+            String description
+    ) {
+        this.name = name;
+        this.versionName = versionName;
+        this.versionCode = versionCode;
+        this.packageName = packageName;
+        this.system = system;
+        this.md5 = md5;
+        this.size = size;
+        this.url = url;
+        this.createdDate = createdDate;
+        this.description = description;
+    }
+
 
     public Integer getId() {
         return id;
@@ -135,11 +183,11 @@ public class Application implements Serializable {
         this.versionName = versionName;
     }
 
-    public String getVersionCode() {
+    public Integer getVersionCode() {
         return versionCode;
     }
 
-    public void setVersionCode(String versionCode) {
+    public void setVersionCode(Integer versionCode) {
         this.versionCode = versionCode;
     }
 
@@ -181,6 +229,22 @@ public class Application implements Serializable {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public Long getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(Long createdDate) {
+        this.createdDate = createdDate;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
 }

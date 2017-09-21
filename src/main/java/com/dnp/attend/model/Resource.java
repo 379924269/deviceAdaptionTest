@@ -1,26 +1,31 @@
-package com.dnp.attend.model;
+package
+
+        com.dnp.attend.model;
+
+
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Date;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-import java.io.Serializable;
+import java.io.*;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+
 
 /**
  * <p>
  * 资源权限信息
  * </p>
  *
- * @author huaxing.xie
- * @since 2017-06-08
+ * @author stylefeng
+ * @since 2017-09-21
  */
 
 @XmlRootElement(name = "resource")
@@ -28,25 +33,15 @@ import javax.xml.bind.annotation.XmlRootElement;
 @ApiModel(value = "resource", description = "资源权限信息")
 public class Resource implements Serializable {
 
-    public Resource() {
-        super();
-    }
-
-    public Resource(String name, Integer parentId, String resKey, String resUrl) {
-        super();
-        this.name = name;
-        this.parentId = parentId;
-        this.resKey = resKey;
-        this.resUrl = resUrl;
-    }
-
     private static final long serialVersionUID = 1L;
+
 
     /**
      * 资源id
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     @XmlAttribute
     @ApiModelProperty(value = "资源id", dataType = "Integer", required = true)
     private Integer id;
@@ -61,6 +56,7 @@ public class Resource implements Serializable {
      * 资源父节点
      */
     @Column(name = "parent_id")
+
     @XmlAttribute
     @ApiModelProperty(value = "资源父节点", dataType = "Integer", required = false)
     private Integer parentId;
@@ -68,6 +64,7 @@ public class Resource implements Serializable {
      * 资源key
      */
     @Column(name = "res_key")
+
     @XmlAttribute
     @ApiModelProperty(value = "资源key", dataType = "String", required = false)
     private String resKey;
@@ -75,9 +72,31 @@ public class Resource implements Serializable {
      * 资源value
      */
     @Column(name = "res_url")
+
     @XmlAttribute
     @ApiModelProperty(value = "资源value", dataType = "String", required = false)
     private String resUrl;
+
+
+    public Resource() {
+    }
+
+
+    public Resource(
+            String name
+            ,
+            Integer parentId
+            ,
+            String resKey
+            ,
+            String resUrl
+    ) {
+        this.name = name;
+        this.parentId = parentId;
+        this.resKey = resKey;
+        this.resUrl = resUrl;
+    }
+
 
     public Integer getId() {
         return id;

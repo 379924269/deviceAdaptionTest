@@ -1,4 +1,6 @@
-package com.dnp.attend.controller;
+package
+
+        com.dnp.attend.controller;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -17,18 +19,15 @@ import com.dnp.attend.service.RoleService;
 import com.dnp.attend.vo.PageVo;
 
 /**
- * <p>
- * 角色信息 前端控制器
- * </p>
+ * 角色信息  前端控制器
  *
- * @author huaxing.xie
- * @since 2017-06-08
+ * @author stylefeng
+ * @since 2017-09-21
  */
 @Api(value = "RoleController", description = "角色信息")
 @RestController
 @RequestMapping(value = "/role", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class RoleController {
-
     @Autowired
     private RoleService roleService;
 
@@ -36,8 +35,7 @@ public class RoleController {
     @ApiOperation(value = "查询所有角色信息", notes = "查询所有角色信息")
     public Object findAll(PageVo pageVo,
                           @ApiParam(name = "search", value = "模糊查询字段", required = false) @RequestParam(required = false, defaultValue = "") String search) {
-        Role role = new Role();
-        return roleService.selectByExample(pageVo, search, "", role);
+        return null;
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
@@ -46,7 +44,7 @@ public class RoleController {
         return roleService.selectByKey(id);
     }
 
-    @RequestMapping(value = "", method = RequestMethod.PUT)
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     @ApiOperation(value = "修改角色信息", notes = "修改角色信息")
     public void update(Role role) {
         roleService.updateAll(role);
@@ -54,13 +52,21 @@ public class RoleController {
 
     @RequestMapping(value = "", method = RequestMethod.POST)
     @ApiOperation(value = "添加角色信息", notes = "添加角色信息")
-    public void save(@ApiParam(name = "name", value = "角色名称", required = false) @RequestParam(required = false) String name,
-                     @ApiParam(name = "description", value = "角色描述", required = false) @RequestParam(required = false) String description) {
-        Role role = new Role(name, description);
+    public void save(
+
+            @ApiParam(name = "name", value = "角色信息")
+            @RequestParam(required = false, name = "name") String name
+            ,
+            @ApiParam(name = "description", value = "角色信息")
+            @RequestParam(required = false, name = "description") String description
+    ) {
+        Role role = new Role(
+
+                name, description);
         roleService.save(role);
     }
 
-    @RequestMapping(value = "", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     @ApiOperation(value = "删除角色信息", notes = "修改角色信息")
     public void delete(@ApiParam(name = "id", value = "角色信息id", required = true) @PathVariable("id") Integer id) {
         roleService.delete(id);

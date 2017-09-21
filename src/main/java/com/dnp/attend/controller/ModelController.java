@@ -1,4 +1,6 @@
-package com.dnp.attend.controller;
+package
+
+        com.dnp.attend.controller;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -17,18 +19,15 @@ import com.dnp.attend.service.ModelService;
 import com.dnp.attend.vo.PageVo;
 
 /**
- * <p>
- * 型号信息 前端控制器
- * </p>
+ * 型号信息  前端控制器
  *
- * @author huaxing.xie
- * @since 2017-06-08
+ * @author stylefeng
+ * @since 2017-09-21
  */
 @Api(value = "ModelController", description = "型号信息")
 @RestController
 @RequestMapping(value = "/model", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class ModelController {
-
     @Autowired
     private ModelService modelService;
 
@@ -36,8 +35,7 @@ public class ModelController {
     @ApiOperation(value = "查询所有型号信息", notes = "查询所有型号信息")
     public Object findAll(PageVo pageVo,
                           @ApiParam(name = "search", value = "模糊查询字段", required = false) @RequestParam(required = false, defaultValue = "") String search) {
-        Model model = new Model();
-        return modelService.selectByExample(pageVo, search, "", model);
+        return null;
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
@@ -46,7 +44,7 @@ public class ModelController {
         return modelService.selectByKey(id);
     }
 
-    @RequestMapping(value = "", method = RequestMethod.PUT)
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     @ApiOperation(value = "修改型号信息", notes = "修改型号信息")
     public void update(Model model) {
         modelService.updateAll(model);
@@ -54,12 +52,18 @@ public class ModelController {
 
     @RequestMapping(value = "", method = RequestMethod.POST)
     @ApiOperation(value = "添加型号信息", notes = "添加型号信息")
-    public void save(@ApiParam(name = "name", value = "型号名称", required = false) @RequestParam(required = false) String name) {
-        Model model = new Model(name);
+    public void save(
+
+            @ApiParam(name = "name", value = "型号信息")
+            @RequestParam(required = false, name = "name") String name
+    ) {
+        Model model = new Model(
+
+                name);
         modelService.save(model);
     }
 
-    @RequestMapping(value = "", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     @ApiOperation(value = "删除型号信息", notes = "修改型号信息")
     public void delete(@ApiParam(name = "id", value = "型号信息id", required = true) @PathVariable("id") Integer id) {
         modelService.delete(id);

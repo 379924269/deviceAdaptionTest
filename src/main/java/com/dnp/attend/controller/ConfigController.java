@@ -1,4 +1,6 @@
-package com.dnp.attend.controller;
+package
+
+        com.dnp.attend.controller;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -17,18 +19,15 @@ import com.dnp.attend.service.ConfigService;
 import com.dnp.attend.vo.PageVo;
 
 /**
- * <p>
- * 配置信息 前端控制器
- * </p>
+ * 配置信息  前端控制器
  *
- * @author huaxing.xie
- * @since 2017-06-08
+ * @author stylefeng
+ * @since 2017-09-21
  */
 @Api(value = "ConfigController", description = "配置信息")
 @RestController
 @RequestMapping(value = "/config", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class ConfigController {
-
     @Autowired
     private ConfigService configService;
 
@@ -36,8 +35,7 @@ public class ConfigController {
     @ApiOperation(value = "查询所有配置信息", notes = "查询所有配置信息")
     public Object findAll(PageVo pageVo,
                           @ApiParam(name = "search", value = "模糊查询字段", required = false) @RequestParam(required = false, defaultValue = "") String search) {
-        Config config = new Config();
-        return configService.selectByExample(pageVo, search, "", config);
+        return null;
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
@@ -46,7 +44,7 @@ public class ConfigController {
         return configService.selectByKey(id);
     }
 
-    @RequestMapping(value = "", method = RequestMethod.PUT)
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     @ApiOperation(value = "修改配置信息", notes = "修改配置信息")
     public void update(Config config) {
         configService.updateAll(config);
@@ -54,15 +52,30 @@ public class ConfigController {
 
     @RequestMapping(value = "", method = RequestMethod.POST)
     @ApiOperation(value = "添加配置信息", notes = "添加配置信息")
-    public void save(@ApiParam(name = "name", value = "配置名称", required = false) @RequestParam(required = false) String name,
-                     @ApiParam(name = "content", value = "配置内容,JSON字符串", required = false) @RequestParam(required = false) String content,
-                     @ApiParam(name = "locationId", value = "配置内容,JSON字符串", required = false) @RequestParam(required = false) Integer locationId,
-                     @ApiParam(name = "modelId", value = "配置内容,JSON字符串", required = false) @RequestParam(required = false) Integer modelId) {
-        Config config = new Config(name, content, locationId, modelId);
+    public void save(
+
+            @ApiParam(name = "name", value = "配置信息")
+            @RequestParam(required = false, name = "name") String name
+            ,
+            @ApiParam(name = "content", value = "配置信息")
+            @RequestParam(required = false, name = "content") String content
+            ,
+            @ApiParam(name = "createdDate", value = "配置信息")
+            @RequestParam(required = false, name = "createdDate") Long createdDate
+            ,
+            @ApiParam(name = "locationId", value = "配置信息")
+            @RequestParam(required = false, name = "locationId") Integer locationId
+            ,
+            @ApiParam(name = "modelId", value = "配置信息")
+            @RequestParam(required = false, name = "modelId") Integer modelId
+    ) {
+        Config config = new Config(
+
+                name, content, createdDate, locationId, modelId);
         configService.save(config);
     }
 
-    @RequestMapping(value = "", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     @ApiOperation(value = "删除配置信息", notes = "修改配置信息")
     public void delete(@ApiParam(name = "id", value = "配置信息id", required = true) @PathVariable("id") Integer id) {
         configService.delete(id);

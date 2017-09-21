@@ -1,27 +1,31 @@
-package com.dnp.attend.model;
+package
+
+        com.dnp.attend.model;
+
+
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Date;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-import java.io.Serializable;
-import java.util.Date;
+import java.io.*;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+
 
 /**
  * <p>
  * 用户信息
  * </p>
  *
- * @author huaxing.xie
- * @since 2017-06-08
+ * @author stylefeng
+ * @since 2017-09-21
  */
 
 @XmlRootElement(name = "user")
@@ -29,26 +33,15 @@ import javax.xml.bind.annotation.XmlRootElement;
 @ApiModel(value = "user", description = "用户信息")
 public class User implements Serializable {
 
-    public User() {
-        super();
-    }
-
-    public User(String name, String email, String password, Date createdDate, Integer roleId) {
-        super();
-        this.name = name;
-        this.email = email;
-        this.password = password;
-        this.createdDate = createdDate;
-        this.roleId = roleId;
-    }
-
     private static final long serialVersionUID = 1L;
+
 
     /**
      * 用户id
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     @XmlAttribute
     @ApiModelProperty(value = "用户id", dataType = "Integer", required = true)
     private Integer id;
@@ -77,16 +70,42 @@ public class User implements Serializable {
      * 用户创建日期
      */
     @Column(name = "created_date")
+
     @XmlAttribute
-    @ApiModelProperty(value = "用户创建日期", dataType = "Date", required = false)
-    private Date createdDate;
+    @ApiModelProperty(value = "用户创建日期", dataType = "Long", required = false)
+    private Long createdDate;
     /**
      * 角色id
      */
     @Column(name = "role_id")
+
     @XmlAttribute
     @ApiModelProperty(value = "角色id", dataType = "Integer", required = false)
     private Integer roleId;
+
+
+    public User() {
+    }
+
+
+    public User(
+            String name
+            ,
+            String email
+            ,
+            String password
+            ,
+            Long createdDate
+            ,
+            Integer roleId
+    ) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.createdDate = createdDate;
+        this.roleId = roleId;
+    }
+
 
     public Integer getId() {
         return id;
@@ -120,11 +139,11 @@ public class User implements Serializable {
         this.password = password;
     }
 
-    public Date getCreatedDate() {
+    public Long getCreatedDate() {
         return createdDate;
     }
 
-    public void setCreatedDate(Date createdDate) {
+    public void setCreatedDate(Long createdDate) {
         this.createdDate = createdDate;
     }
 

@@ -1,4 +1,6 @@
-package com.dnp.attend.controller;
+package
+
+        com.dnp.attend.controller;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -17,18 +19,15 @@ import com.dnp.attend.service.TfcardService;
 import com.dnp.attend.vo.PageVo;
 
 /**
- * <p>
- * TF卡信息 前端控制器
- * </p>
+ * TF卡信息  前端控制器
  *
- * @author huaxing.xie
- * @since 2017-06-08
+ * @author stylefeng
+ * @since 2017-09-21
  */
 @Api(value = "TfcardController", description = "TF卡信息")
 @RestController
 @RequestMapping(value = "/tfcard", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class TfcardController {
-
     @Autowired
     private TfcardService tfcardService;
 
@@ -36,8 +35,7 @@ public class TfcardController {
     @ApiOperation(value = "查询所有TF卡信息", notes = "查询所有TF卡信息")
     public Object findAll(PageVo pageVo,
                           @ApiParam(name = "search", value = "模糊查询字段", required = false) @RequestParam(required = false, defaultValue = "") String search) {
-        Tfcard tfcard = new Tfcard();
-        return tfcardService.selectByExample(pageVo, search, "", tfcard);
+        return null;
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
@@ -46,7 +44,7 @@ public class TfcardController {
         return tfcardService.selectByKey(id);
     }
 
-    @RequestMapping(value = "", method = RequestMethod.PUT)
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     @ApiOperation(value = "修改TF卡信息", notes = "修改TF卡信息")
     public void update(Tfcard tfcard) {
         tfcardService.updateAll(tfcard);
@@ -54,15 +52,30 @@ public class TfcardController {
 
     @RequestMapping(value = "", method = RequestMethod.POST)
     @ApiOperation(value = "添加TF卡信息", notes = "添加TF卡信息")
-    public void save(@ApiParam(name = "tfId", value = "tf卡id", required = false) @RequestParam(required = false) String tfId,
-                     @ApiParam(name = "tfSn", value = "tf卡的序列号", required = false) @RequestParam(required = false) String tfSn,
-                     @ApiParam(name = "status", value = "tf卡的状态", required = false) @RequestParam(required = false) Integer status,
-                     @ApiParam(name = "locationId", value = "tf卡归属地id", required = false) @RequestParam(required = false) Integer locationId) {
-        Tfcard tfcard = new Tfcard(tfId, tfSn, status, locationId);
+    public void save(
+
+            @ApiParam(name = "tfId", value = "TF卡信息")
+            @RequestParam(required = false, name = "tfId") String tfId
+            ,
+            @ApiParam(name = "tfSn", value = "TF卡信息")
+            @RequestParam(required = false, name = "tfSn") String tfSn
+            ,
+            @ApiParam(name = "status", value = "TF卡信息")
+            @RequestParam(required = false, name = "status") Integer status
+            ,
+            @ApiParam(name = "locationId", value = "TF卡信息")
+            @RequestParam(required = false, name = "locationId") Integer locationId
+            ,
+            @ApiParam(name = "createdDate", value = "TF卡信息")
+            @RequestParam(required = false, name = "createdDate") Long createdDate
+    ) {
+        Tfcard tfcard = new Tfcard(
+
+                tfId, tfSn, status, locationId, createdDate);
         tfcardService.save(tfcard);
     }
 
-    @RequestMapping(value = "", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     @ApiOperation(value = "删除TF卡信息", notes = "修改TF卡信息")
     public void delete(@ApiParam(name = "id", value = "TF卡信息id", required = true) @PathVariable("id") Integer id) {
         tfcardService.delete(id);

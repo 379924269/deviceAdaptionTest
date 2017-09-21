@@ -8,8 +8,8 @@ import com.dnp.attend.util.MyMapper;
  * 资源权限信息 Mapper 接口
  * </p>
  *
- * @author huaxing.xie
- * @since 2017-06-07
+ * @author stylefeng
+ * @since 2017-09-21
  */
 public interface ResourceMapper extends MyMapper<Resource> {
 

@@ -1,17 +1,11 @@
 package com.dnp.attend.vo;
 
 import io.swagger.annotations.ApiModel;
-
-import java.io.Serializable;
-
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.builder.ToStringBuilder;
+
+import javax.xml.bind.annotation.*;
+import java.io.Serializable;
 
 @XmlRootElement(name = "pageVo")
 @XmlAccessorType(XmlAccessType.NONE)

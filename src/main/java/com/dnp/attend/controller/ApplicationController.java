@@ -17,18 +17,15 @@ import com.dnp.attend.service.ApplicationService;
 import com.dnp.attend.vo.PageVo;
 
 /**
- * <p>
- * 应用信息 前端控制器
- * </p>
+ * 应用信息  前端控制器
  *
- * @author huaxing.xie
- * @since 2017-06-08
+ * @author stylefeng
+ * @since 2017-09-21
  */
 @Api(value = "ApplicationController", description = "应用信息")
 @RestController
 @RequestMapping(value = "/application", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class ApplicationController {
-
     @Autowired
     private ApplicationService applicationService;
 
@@ -36,8 +33,7 @@ public class ApplicationController {
     @ApiOperation(value = "查询所有应用信息", notes = "查询所有应用信息")
     public Object findAll(PageVo pageVo,
                           @ApiParam(name = "search", value = "模糊查询字段", required = false) @RequestParam(required = false, defaultValue = "") String search) {
-        Application application = new Application();
-        return applicationService.selectByExample(pageVo, search, "", application);
+        return applicationService.selectByExample(pageVo, search, "name", new Application());
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
@@ -46,7 +42,7 @@ public class ApplicationController {
         return applicationService.selectByKey(id);
     }
 
-    @RequestMapping(value = "", method = RequestMethod.PUT)
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     @ApiOperation(value = "修改应用信息", notes = "修改应用信息")
     public void update(Application application) {
         applicationService.updateAll(application);
@@ -54,19 +50,23 @@ public class ApplicationController {
 
     @RequestMapping(value = "", method = RequestMethod.POST)
     @ApiOperation(value = "添加应用信息", notes = "添加应用信息")
-    public void save(@ApiParam(name = "name", value = "应用名称", required = false) @RequestParam(required = false) String name,
-                     @ApiParam(name = "versionName", value = "应用版本名称", required = false) @RequestParam(required = false) String versionName,
-                     @ApiParam(name = "versionCode", value = "应用版本号", required = false) @RequestParam(required = false) String versionCode,
-                     @ApiParam(name = "packageName", value = "应用报名", required = false) @RequestParam(required = false) String packageName,
-                     @ApiParam(name = "system", value = "应用版本：如：华为、中心等（包名相同不同版本）", required = false) @RequestParam(required = false) String system,
-                     @ApiParam(name = "md5", value = "应用MD5", required = false) @RequestParam(required = false) String md5,
-                     @ApiParam(name = "size", value = "应用大小", required = false) @RequestParam(required = false) Integer size,
-                     @ApiParam(name = "url", value = "应用地址", required = false) @RequestParam(required = false) String url) {
-        Application application = new Application(name, versionName, versionCode, packageName, system, md5, size, url);
+    public void save(@ApiParam(name = "name", value = "应用信息", required = true)
+                     @RequestParam(name = "name") String name, @ApiParam(name = "versionName", value = "应用信息")
+                     @RequestParam(required = false, name = "versionName") String versionName, @ApiParam(name = "versionCode", value = "应用信息", required = true)
+                     @RequestParam(name = "versionCode") Integer versionCode, @ApiParam(name = "packageName", value = "应用信息")
+                     @RequestParam(required = false, name = "packageName") String packageName, @ApiParam(name = "system", value = "应用信息")
+                     @RequestParam(required = false, name = "system") String system, @ApiParam(name = "md5", value = "应用信息")
+                     @RequestParam(required = false, name = "md5") String md5, @ApiParam(name = "size", value = "应用信息")
+                     @RequestParam(required = false, name = "size") Integer size, @ApiParam(name = "url", value = "应用信息", required = true)
+                     @RequestParam(name = "url") String url, @ApiParam(name = "createdDate", value = "应用信息", required = true)
+                     @RequestParam(name = "createdDate") Long createdDate, @ApiParam(name = "description", value = "应用信息")
+                     @RequestParam(required = false, name = "description") String description
+    ) {
+        Application application = new Application(name, versionName, versionCode, packageName, system, md5, size, url, createdDate, description);
         applicationService.save(application);
     }
 
-    @RequestMapping(value = "", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     @ApiOperation(value = "删除应用信息", notes = "修改应用信息")
     public void delete(@ApiParam(name = "id", value = "应用信息id", required = true) @PathVariable("id") Integer id) {
         applicationService.delete(id);
