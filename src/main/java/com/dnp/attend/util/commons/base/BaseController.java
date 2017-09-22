@@ -1,9 +1,9 @@
 package com.dnp.attend.util.commons.base;
 
 import com.dnp.attend.util.commons.result.Result;
-import com.dnp.attend.util.commons.utils.IOUtils;
-import com.dnp.attend.util.commons.utils.StringEscapeEditor;
-import com.dnp.attend.util.commons.utils.URLUtils;
+import com.dnp.attend.util.IOUtils;
+import com.dnp.attend.util.StringEscapeEditor;
+import com.dnp.attend.util.URLUtils;
 import com.google.common.base.Charsets;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.http.HttpHeaders;

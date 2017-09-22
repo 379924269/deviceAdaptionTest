@@ -34,10 +34,10 @@ public class UserController {
     @RequestMapping(value = "", method = RequestMethod.GET)
     @ApiOperation(value = "查询所有用户信息", notes = "查询所有用户信息")
     public Object findAll(PageVo pageVo,
-                          @ApiParam(name = "search", value = "模糊查询字段", required = false) @RequestParam(required = false, defaultValue = "") String search) {
-        return null;
+                          @ApiParam(name = "search", value = "模糊查询字段") @RequestParam(required = false, defaultValue = "") String search) {
+        return userService.selectByExample(pageVo, search, "name", new User());
     }
-
+    
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     @ApiOperation(value = "查询用户信息详情", notes = "查询用户信息详情", httpMethod = "GET")
     public User findById(@ApiParam(name = "id", value = "用户信息id", required = true) @PathVariable("id") Integer id) {

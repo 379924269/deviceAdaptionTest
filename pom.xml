@@ -19,6 +19,7 @@
 		<spring.version>4.3.6.RELEASE</spring.version>
 		<mybatis.spring.version>1.2.4</mybatis.spring.version>
 		<springfox-version>2.7.0</springfox-version>
+		<druid.version>1.0.29</druid.version>
 	</properties>
 	<dependencies>
 		<!-- test begin -->
@@ -153,7 +154,7 @@
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>druid</artifactId>
-			<version>1.0.11</version>
+			<version>${druid.version}</version>
 		</dependency>
 
 		<!--Mybatis -->

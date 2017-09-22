@@ -1,4 +1,4 @@
-package com.dnp.attend.util.commons.utils;
+package com.dnp.attend.util;
 
 import org.springframework.web.util.HtmlUtils;
 
