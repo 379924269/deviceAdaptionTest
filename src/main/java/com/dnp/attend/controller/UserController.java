@@ -55,19 +55,19 @@ public class UserController {
     public void save(
 
             @ApiParam(name = "name", value = "用户信息")
-            @RequestParam(required = false, name = "name") String name
+            @RequestParam(name = "name") String name
             ,
             @ApiParam(name = "email", value = "用户信息")
-            @RequestParam(required = false, name = "email") String email
+            @RequestParam(name = "email") String email
             ,
             @ApiParam(name = "password", value = "用户信息")
-            @RequestParam(required = false, name = "password") String password
+            @RequestParam(name = "password") String password
             ,
             @ApiParam(name = "createdDate", value = "用户信息")
-            @RequestParam(required = false, name = "createdDate") Long createdDate
+            @RequestParam(name = "createdDate") Long createdDate
             ,
             @ApiParam(name = "roleId", value = "用户信息")
-            @RequestParam(required = false, name = "roleId") Integer roleId
+            @RequestParam(name = "roleId") Integer roleId
     ) {
         User user = new User(
 
