@@ -1,20 +1,15 @@
 package com.dnp.attend.controller;
 
+import com.dnp.attend.model.Application;
+import com.dnp.attend.service.ApplicationService;
+import com.dnp.attend.vo.ApplicationListVo;
+import com.dnp.attend.vo.PageVo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.dnp.attend.model.Application;
-import com.dnp.attend.service.ApplicationService;
-import com.dnp.attend.vo.PageVo;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * 应用信息  前端控制器
@@ -30,9 +25,9 @@ public class ApplicationController {
     private ApplicationService applicationService;
 
     @RequestMapping(value = "", method = RequestMethod.GET)
-    @ApiOperation(value = "查询所有应用信息", notes = "查询所有应用信息")
+    @ApiOperation(value = "查询所有应用信息", notes = "查询所有应用信息", response = ApplicationListVo.class)
     public Object findAll(PageVo pageVo,
-                          @ApiParam(name = "search", value = "模糊查询字段", required = false) @RequestParam(required = false, defaultValue = "") String search) {
+                          @ApiParam(name = "search", value = "模糊查询字段") @RequestParam(required = false, defaultValue = "") String search) {
         return applicationService.selectByExample(pageVo, search, "name", new Application());
     }
 

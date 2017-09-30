@@ -7,6 +7,12 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 import javax.xml.bind.annotation.*;
 import java.io.Serializable;
 
+/**
+ * 分页参数
+ *
+ * @Author 华仔
+ * @DATE 2017/9/25 15:14
+ */
 @XmlRootElement(name = "pageVo")
 @XmlAccessorType(XmlAccessType.NONE)
 @ApiModel(value = "分页参数", description = "分页参数")

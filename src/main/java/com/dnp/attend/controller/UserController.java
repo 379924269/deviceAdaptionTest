@@ -2,9 +2,9 @@ package
 
         com.dnp.attend.controller;
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
+import com.dnp.attend.vo.ResponseResultStrVo;
+import com.dnp.attend.vo.ResponseResultUserVo;
+import io.swagger.annotations.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -50,10 +50,11 @@ public class UserController {
         userService.updateAll(user);
     }
 
+    @ApiResponses({@ApiResponse(code = 1025, message = "email重复", response = ResponseResultStrVo.class),
+            @ApiResponse(code = 1026, message = "键值错误", response = ResponseResultUserVo.class)})
     @RequestMapping(value = "", method = RequestMethod.POST)
     @ApiOperation(value = "添加用户信息", notes = "添加用户信息")
     public void save(
-
             @ApiParam(name = "name", value = "用户信息")
             @RequestParam(name = "name") String name
             ,
@@ -69,9 +70,7 @@ public class UserController {
             @ApiParam(name = "roleId", value = "用户信息")
             @RequestParam(name = "roleId") Integer roleId
     ) {
-        User user = new User(
-
-                name, email, password, createdDate, roleId);
+        User user = new User(name, email, password, createdDate, roleId);
         userService.save(user);
     }
 
